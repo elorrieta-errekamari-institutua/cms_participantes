@@ -20,6 +20,11 @@
 		<br>
 		<input type="submit" value="Sumar">
 	</form>	
+	
+	<figure>
+		<img src="images/calculadora.jpg" alt="flujo de navegacion" style="width: 100%">
+		<figcaption>Flujo de navegación</figcaption>
+	</figure>
 
 </body>
 </html>
