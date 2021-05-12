@@ -18,6 +18,10 @@
            <a class="nav-link ${ (param.page eq 'formulario') ? 'active' : '' }" 
               href="formulario.jsp?page=formulario">Formulario Alta</a>
          </li>
+         <li class="nav-item">
+           <a class="nav-link" 
+              href="calculadora.jsp">Calculadora</a>
+         </li>
        </ul>
      </div>
    </div>
