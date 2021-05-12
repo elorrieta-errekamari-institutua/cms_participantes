@@ -52,18 +52,24 @@ public class CalculadoraController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		// recoger PARAMETROS, CUIDADO siempre son String
-		int numero1 = Integer.parseInt(request.getParameter("numero1"));
-		int numero2 = Integer.parseInt(request.getParameter("numero2"));
+		try {
+			// recoger PARAMETROS, CUIDADO siempre son String
+			int numero1 = Integer.parseInt(request.getParameter("numero1"));
+			int numero2 = Integer.parseInt(request.getParameter("numero2"));
 
-		// logica de negocio
-		int suma = numero1 + numero2;
+			// logica de negocio
+			int suma = numero1 + numero2;
 
-		// Enviar ATRIBUTOS a la JSP
-		request.setAttribute("resultado", suma);
+			// Enviar ATRIBUTOS a la JSP
+			request.setAttribute("resultado", suma);
 
-		// IR a la JSP resultado.jsp
-		request.getRequestDispatcher("resultado.jsp").forward(request, response);
+			// IR a la JSP resultado.jsp
+			request.getRequestDispatcher("resultado.jsp").forward(request, response);
+
+		} catch (Exception e) {
+			request.setAttribute("mensaje", "Por favor escribe numeros");
+			request.getRequestDispatcher("calculadora.jsp").forward(request, response);
+		}
 
 	}
 

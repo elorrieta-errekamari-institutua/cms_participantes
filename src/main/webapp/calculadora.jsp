@@ -8,6 +8,8 @@
 </head>
 <body>
 
+	<p style="color:red">${mensaje}</p>
+
 	<p>Podemos hacer la peticion por GET mediante un enlace </p>
 	<a href="calcular?numero1=4&numero2=8">peticion GET <b>calcular?numero1=4&numero2=8</b></a>
 
