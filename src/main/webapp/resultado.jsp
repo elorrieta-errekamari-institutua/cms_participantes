@@ -1,14 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="ISO-8859-1">
-<title>Resultado</title>
-</head>
-<body>
+<jsp:include page="plantillas/cabecera.jsp"/>
+<jsp:include page="plantillas/menu.jsp"/>
 
-	El resultado de la suma es ${resultado}
+	<div class="container">
+		<p>El resultado de ${numero1} ${op} ${numero2} = ${resultado}</p>
+	</div>	
 
-</body>
-</html>
+<jsp:include page="plantillas/footer.jsp"/>

@@ -27,8 +27,3 @@
    </div>
 </nav>
  
- <hr>
-  	Expresion Lenguage (EL), parametro 'page' = ${param.page} 
- <hr>
- 	Con Java parametro 'page' = <%=request.getParameter("page") %>
- <hr>
