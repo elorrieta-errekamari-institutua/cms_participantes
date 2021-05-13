@@ -5,7 +5,7 @@
 
         <h1>Iniciar Sesión</h1>
 
-        <form action="#" method="post">
+        <form action="login" method="post">
                 <label for="nombre" class="form-label">Nombre:</label>
                 <input type="text" 
                        name="nombre" 
