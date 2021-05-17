@@ -4,7 +4,6 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
 
 import com.elorrieta.cms.modelo.Participante;
@@ -24,12 +23,10 @@ public class ParticipanteDAO {
 	 * @return Lista con todos los participantes de la bbdd
 	 * @throws Exception
 	 */
-	public static ArrayList<Participante> getAll() throws Exception {
+	public static ArrayList<Participante> getAll() {
 
 		ArrayList<Participante> coleccion = new ArrayList<Participante>();
 		String sql = "SELECT id, nombre, apellidos, email, avatar FROM participante ORDER BY id ASC; ";
-
-		Class.forName("org.sqlite.JDBC"); // cargar el driver de sqlite
 
 		try (
 
@@ -39,10 +36,13 @@ public class ParticipanteDAO {
 
 		) {
 
-			while (rs.next()) {
+			Class.forName("org.sqlite.JDBC"); // cargar el driver de sqlite
+
+			while (rs.next()) { // itero sobre los resultados de la consulta SQL
 
 				// creamos un nuevo Objeto y lo seteamos con los valores del RS
 				Participante p = new Participante();
+
 				p.setId(rs.getInt("id"));
 				p.setNombre(rs.getString("nombre"));
 				p.setApellidos(rs.getString("apellidos"));
@@ -55,7 +55,7 @@ public class ParticipanteDAO {
 			}
 			// fin del bucle, ya no quedan mas lineas para leer
 
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 

@@ -29,21 +29,8 @@ public class ParticipantesController extends HttpServlet {
 		// recoger parametros, no tenemos
 
 		// logica de negocio, conseguir coleccion de Participantes
-		/*
-		 * ArrayList<Participante> lista = new ArrayList<Participante>(); lista.add(new
-		 * Participante("Pepito", "Gafotas")); lista.add(new Participante("Manolita",
-		 * "Tragladabas")); lista.add(new Participante("Jon", "Kañpon"));
-		 */
 
-		ArrayList<Participante> lista = new ArrayList<Participante>();
-		try {
-
-			lista = ParticipanteDAO.getAll();
-
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		ArrayList<Participante> lista = ParticipanteDAO.getAll();
 
 		// enviar atributos para pintar
 		request.setAttribute("participantes", lista);
