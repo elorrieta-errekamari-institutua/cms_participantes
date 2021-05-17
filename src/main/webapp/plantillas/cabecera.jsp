@@ -9,7 +9,7 @@
     <!-- fontawesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
     <!-- mi css -->
-    <link rel="stylesheet" href="../css/bootstrap-custom.css">
+    <link rel="stylesheet" href="css/bootstrap-custom.css">
     <title>CMS</title>
 </head>
 <body>
