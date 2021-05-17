@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.elorrieta.cms.modelo.Participante;
+import com.elorrieta.cms.modelo.dao.ParticipanteDAO;
 
 /**
  * Servlet implementation class ParticipantesController
@@ -28,10 +29,21 @@ public class ParticipantesController extends HttpServlet {
 		// recoger parametros, no tenemos
 
 		// logica de negocio, conseguir coleccion de Participantes
+		/*
+		 * ArrayList<Participante> lista = new ArrayList<Participante>(); lista.add(new
+		 * Participante("Pepito", "Gafotas")); lista.add(new Participante("Manolita",
+		 * "Tragladabas")); lista.add(new Participante("Jon", "Kañpon"));
+		 */
+
 		ArrayList<Participante> lista = new ArrayList<Participante>();
-		lista.add(new Participante("Pepito", "Gafotas"));
-		lista.add(new Participante("Manolita", "Tragladabas"));
-		lista.add(new Participante("Jon", "Kañpon"));
+		try {
+
+			lista = ParticipanteDAO.getAll();
+
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 		// enviar atributos para pintar
 		request.setAttribute("participantes", lista);
