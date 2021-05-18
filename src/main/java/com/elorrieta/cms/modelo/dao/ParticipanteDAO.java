@@ -1,7 +1,6 @@
 package com.elorrieta.cms.modelo.dao;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
@@ -30,22 +29,25 @@ public class ParticipanteDAO {
 
 		try (
 
-				Connection con = DriverManager.getConnection("jdbc:sqlite:C:\\desarrolloJava\\workspace\\cms\\cms.db");
+				Connection con = ConnectionHelper.getConnection();
 				PreparedStatement pst = con.prepareStatement(sql);
 				ResultSet rs = pst.executeQuery(); // lanza la consulta SQL y obtiene Resultados RS
 
 		) {
-
-			Class.forName("org.sqlite.JDBC"); // cargar el driver de sqlite
 
 			while (rs.next()) { // itero sobre los resultados de la consulta SQL
 
 				// creamos un nuevo Objeto y lo seteamos con los valores del RS
 				Participante p = new Participante();
 
-				p.setId(rs.getInt("id"));
-				p.setNombre(rs.getString("nombre"));
-				p.setApellidos(rs.getString("apellidos"));
+				// cogemos los valres de las columnas
+				int colId = rs.getInt("id");
+				String colNombre = rs.getString("nombre");
+				String colApellidos = rs.getString("apellidos");
+
+				p.setId(colId);
+				p.setNombre(colNombre);
+				p.setApellidos(colApellidos);
 				p.setEmail(rs.getString("email"));
 				p.setAvatar(rs.getString("avatar"));
 

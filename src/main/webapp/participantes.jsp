@@ -31,6 +31,8 @@
         	var="pIteracion"           => nombre de la variable que iteramos que es un Participante 
         
         	${p.nombre} es lo mismo que p.getNombre(), es una forma abreviada
+        	
+        	for ( Participante pIteracion : participantes )
         
         -->
         
