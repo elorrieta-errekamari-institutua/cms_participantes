@@ -13,7 +13,7 @@
                        required 
                        autofocus 
                        class="form-control" 
-                       placeholder="Tu Email o Tu Número de Teléfono">
+                       placeholder="Nombre o Nick">
 
                 <label for="contraseina" class="form-label">contraseña:</label>
                 <input type="password" 

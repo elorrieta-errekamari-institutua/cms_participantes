@@ -8,6 +8,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.elorrieta.cms.modelo.Usuario;
+import com.elorrieta.cms.modelo.dao.UsuarioDAO;
+
 /**
  * Servlet implementation class LoginController
  */
@@ -39,10 +42,11 @@ public class LoginController extends HttpServlet {
 		String pass = request.getParameter("contraseina");
 
 		// logica de negocio
+		Usuario usuario = UsuarioDAO.login(nombre, pass);
 
-		if ("admin".equals(nombre) && "admin".equals(pass)) {
+		if (usuario != null) {
 			mensaje = "Ongi Etorri";
-			vista = "participantes.jsp?page=participantes";
+			vista = "participantes"; // nombre del controlador, no quiero ir a la JSP
 
 		} else {
 			mensaje = "Credenciales incorrectas, prueba de nuevo";
