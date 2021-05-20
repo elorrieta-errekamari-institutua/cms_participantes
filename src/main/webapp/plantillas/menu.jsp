@@ -24,6 +24,10 @@
            <a class="nav-link" 
               href="calculadora.jsp">Calculadora</a>
          </li>
+           <li class="nav-item">
+           <a class="nav-link" 
+              href="perros">Perros</a>
+         </li>
        </ul>
      </div>
    </div>
