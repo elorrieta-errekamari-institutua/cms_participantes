@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 
 import com.elorrieta.cms.modelo.Perro;
+import com.elorrieta.cms.modelo.Raza;
 
 /**
  * Clase encargada relacionar el POJO con la Tabla DAO Data Access Object
@@ -18,7 +19,7 @@ public class PerroDAO {
 	public static ArrayList<Perro> getAll() {
 
 		ArrayList<Perro> coleccion = new ArrayList<Perro>();
-		String sql = " SELECT perro.id, perro.nombre, historia, raza.nombre as 'raza' "
+		String sql = " SELECT perro.id, perro.nombre, historia, raza.nombre as 'raza', raza.id as 'id_raza' "
 				+ " FROM perro INNER JOIN raza ON perro.id_raza = raza.id " + " ORDER BY perro.id ASC; ";
 
 		try (
@@ -38,12 +39,17 @@ public class PerroDAO {
 				int colId = rs.getInt("id");
 				String colNombre = rs.getString("nombre");
 				String colHis = rs.getString("historia");
-				String colRaza = rs.getString("raza");
+				String colRazaNombre = rs.getString("raza");
+				int colRazaId = rs.getInt("id_raza");
 
 				p.setId(colId);
 				p.setNombre(colNombre);
 				p.setHistoria(colHis);
-				p.setRaza(colRaza);
+
+				Raza raza = new Raza();
+				raza.setId(colRazaId);
+				raza.setNombre(colRazaNombre);
+				p.setRaza(raza);
 
 				// añadir objeto al ArrayList
 				coleccion.add(p);

@@ -5,14 +5,14 @@ public class Perro {
 	private int id;
 	private String nombre;
 	private String historia;
-	private String raza;
+	private Raza raza;
 
 	public Perro() {
 		super();
 		this.id = 0;
 		this.nombre = "";
 		this.historia = "";
-		this.raza = "";
+		this.raza = new Raza();
 	}
 
 	public int getId() {
@@ -39,11 +39,11 @@ public class Perro {
 		this.historia = historia;
 	}
 
-	public String getRaza() {
+	public Raza getRaza() {
 		return raza;
 	}
 
-	public void setRaza(String raza) {
+	public void setRaza(Raza raza) {
 		this.raza = raza;
 	}
 

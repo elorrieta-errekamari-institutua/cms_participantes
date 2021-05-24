@@ -21,7 +21,7 @@
 	          <tr>
 	            <th scope="row">${p.id}</th>	           
 	            <td>${p.nombre}</td>
-	            <td>${p.raza}</td>
+	            <td>${p.raza.nombre}</td>
 	            <td>${p.historia}</td>
 	          </tr>
 	         </c:forEach> 
