@@ -8,7 +8,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.elorrieta.cms.modelo.Raza;
 import com.elorrieta.cms.modelo.dao.PerroDAO;
+import com.elorrieta.cms.modelo.dao.RazaDAO;
 
 /**
  * Servlet implementation class PerroController
@@ -29,6 +31,7 @@ public class PerroController extends HttpServlet {
 		// logica de negocio
 
 		// envio atributos para la JSP
+		request.setAttribute("razas", RazaDAO.getAll());
 		request.setAttribute("perros", PerroDAO.getAll());
 
 		// ir a la JSP
@@ -42,7 +45,16 @@ public class PerroController extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
+
+		// recoger parametros
+
+		int idraza = Integer.parseInt(request.getParameter("idraza"));
+
+		// Crear Perro y Raza, para la insert no necesito el nombre de la raza
+		Raza r = new Raza();
+		r.setId(idraza);
+
+		// llamamos al GET para que liste todos los perros
 		doGet(request, response);
 	}
 
