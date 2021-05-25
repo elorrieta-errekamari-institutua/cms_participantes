@@ -6,12 +6,25 @@
      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
        <span class="navbar-toggler-icon"></span>
      </button>
+     
      <div class="collapse navbar-collapse" id="navbarNavDropdown">
        <ul class="navbar-nav">
-         <li class="nav-item">
-           <a class="nav-link ${ (param.page eq 'login') ? 'active' : '' }" 
-              href="index.jsp?page=login">Login</a>
-         </li>
+       
+         <c:if test="${usuario_logeado == null }">
+	         <li class="nav-item">
+	           <a class="nav-link ${ (param.page eq 'login') ? 'active' : '' }" 
+	              href="index.jsp?page=login">Login</a>
+	         </li>
+         </c:if>
+         
+          <c:if test="${usuario_logeado != null }">
+	         <li class="nav-item">
+	           <b>${usuario_logeado.nombre}</b>
+	           <a class="nav-link" 
+	              href="logout">Cerrar Sesión</a>
+	         </li>
+         </c:if>
+         
          <li class="nav-item">
            <a class="nav-link ${ (param.page eq 'participantes') ? 'active' : '' }" 
               href="participantes">Participantes</a>

@@ -7,6 +7,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.elorrieta.cms.modelo.Usuario;
 import com.elorrieta.cms.modelo.dao.UsuarioDAO;
@@ -47,6 +48,11 @@ public class LoginController extends HttpServlet {
 		if (usuario != null) {
 			mensaje = "Ongi Etorri";
 			vista = "participantes"; // nombre del controlador, no quiero ir a la JSP
+
+			// guardamos el usuario logeado en session como un atributo
+			HttpSession session = request.getSession();
+			session.setAttribute("usuario_logeado", usuario);
+			session.setMaxInactiveInterval(60 * 5); // 5 min
 
 		} else {
 			mensaje = "Credenciales incorrectas, prueba de nuevo";
