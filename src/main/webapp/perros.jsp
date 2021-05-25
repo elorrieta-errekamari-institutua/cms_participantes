@@ -39,17 +39,17 @@
        
        		<form method="post" action="perros">
        		
-       			<input type="text" name="nombre" placeholder="Nombre del perro" class="form-control">
+       			<input type="text" name="nombre" value="${perro.nombre}" placeholder="Nombre del perro" class="form-control">
        		
        		
        			<select name="idraza" class="form-select">
        				<c:forEach var="r" items="${razas}">
-       					<option value="${r.id}">${r.nombre}</option>       				
+       					<option ${ ( r.id == perro.raza.id ) ? "selected" : "" } value="${r.id}">${r.nombre}</option>       				
        				</c:forEach>
        			</select>
        			
        			<label class="mt-3">Historia del perro:</label>	
-       			<textarea class="form-control mb-3"></textarea>
+       			<textarea name="historia"  class="form-control mb-3">${perro.historia}</textarea>
        		
        			<input type="submit" value="crear" class="btn btn-primary btn-block">
        		

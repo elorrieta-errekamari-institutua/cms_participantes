@@ -33,26 +33,8 @@
    </div>
 </nav>
 
-<%
-	// podemos hacer lo mismo con un Scriplet
-	String mensaje = (String)request.getAttribute("mensaje");
-	if ( mensaje != null ){
-		
-		%>
-		
-			<div class="alert alert-danger alert-dismissible fade show" role="alert">
-			  <%=mensaje%>
-			  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-			</div>
-		
-		
-		<%
-	}// fin del if
-	
-//fin del scriplet
-%>
  
- <c:if test="${mensaje != null}" >
+<c:if test="${mensaje != null}" >
 	<div class="alert alert-danger alert-dismissible fade show" role="alert">
 	  ${mensaje}
 	  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
