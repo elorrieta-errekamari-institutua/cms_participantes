@@ -4,12 +4,22 @@
 <main class="container">
 
 	 <h1>Dar de Alta Nuevo Participantes</h1>
-        <form action="#" class="w-50">
+        <form action="participantes" method="post" class="w-50">
+
+			<p class="text-warning">ID esta oculto</p>
+            <input type="text" 
+                   name="id"                   
+                   id="id"
+                   value="${participante.id}"
+                   required            
+                   readonly       
+                   class="form-control">
 
             <label for="nombre" class="form-label">Nombre:</label>
             <input type="text" 
-                   name="nombre" 
+                   name="nombre"                   
                    id="nombre"
+                   value="${participante.nombre}"
                    required 
                    autofocus 
                    class="form-control" 
@@ -19,6 +29,7 @@
             <input type="text" 
                     name="apellidos" 
                     id="apellidos"
+                    value="${participante.apellidos}"
                     required                      
                     class="form-control" 
                     placeholder="escribe los 2 apellidos">
@@ -28,9 +39,19 @@
             <input type="email" 
                     name="email"
                     id="email" 
+                    value="${participante.email}"
                     required                      
                     class="form-control" 
                     placeholder="tu@correo.com">
+                    
+            <label for="avatar" class="form-label">Avatar:</label>
+            <input type="text" 
+                    name="avatar"
+                    id="avatar" 
+                    value="${participante.avatar}"
+                    required                      
+                    class="form-control" 
+                    placeholder="url de la imagen para el avatar">       
 
             <input type="submit" value="Crear" class="btn btn-block btn-primary mt-4">
         </form>

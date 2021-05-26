@@ -27,16 +27,28 @@ public class ParticipantesController extends HttpServlet {
 			throws ServletException, IOException {
 
 		// recoger parametros, no tenemos
+		String paramId = request.getParameter("id");
 
-		// logica de negocio, conseguir coleccion de Participantes
+		if (paramId == null) { // listar
 
-		ArrayList<Participante> lista = ParticipanteDAO.getAll();
+			ArrayList<Participante> lista = ParticipanteDAO.getAll();
+			request.setAttribute("participantes", lista);
+			request.getRequestDispatcher("participantes.jsp?page=participantes").forward(request, response);
 
-		// enviar atributos para pintar
-		request.setAttribute("participantes", lista);
+		} else { // ir al formulario y mostrar datos
 
-		// ir a la vista
-		request.getRequestDispatcher("participantes.jsp?page=participantes").forward(request, response);
+			int id = Integer.parseInt(paramId);
+			Participante p = new Participante();
+
+			if (id > 0) { // ya existe, por lo cual lo recupero de la bbdd
+
+				p = ParticipanteDAO.getById(id);
+			}
+
+			request.setAttribute("participante", p);
+			request.getRequestDispatcher("formulario.jsp").forward(request, response);
+
+		}
 
 	}
 
@@ -47,7 +59,36 @@ public class ParticipantesController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		doGet(request, response);
+		int id = Integer.parseInt(request.getParameter("id"));
+		String nombre = request.getParameter("nombre");
+		String apellidos = request.getParameter("apellidos");
+		String email = request.getParameter("email");
+		String avatar = request.getParameter("avatar");
+
+		Participante p = new Participante();
+		p.setId(id);
+		p.setNombre(nombre);
+		p.setApellidos(apellidos);
+		p.setEmail(email);
+		p.setAvatar(avatar);
+
+		try {
+			if (id == 0) {
+				ParticipanteDAO.insert(p);
+			} else {
+				ParticipanteDAO.update(p);
+			}
+
+			request.setAttribute("mensaje", "Datos Guardados");
+
+		} catch (Exception e) {
+			request.setAttribute("mensaje", "El email esta repetido");
+
+		} finally {
+			request.setAttribute("participante", p);
+			request.getRequestDispatcher("formulario.jsp").forward(request, response);
+		}
+
 	}
 
 }

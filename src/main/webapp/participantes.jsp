@@ -5,7 +5,7 @@
 
  <main class="container">
     <h1>Listado Participantes</h1>
-    <a href="formulario.html">Nuevo Participante</a>
+    <a href="participantes?id=0">Nuevo Participante</a>
     
     
     <hr>
@@ -22,6 +22,7 @@
             <th scope="col">Nombre</th>
             <th scope="col">Apellidos</th>
             <th scope="col">Email</th>
+            <th scope="col">Editar</th>
           </tr>
         </thead>
         <tbody>
@@ -43,6 +44,7 @@
 	            <td>${pIteracion.nombre}</td>
 	            <td>${pIteracion.apellidos}</td>
 	            <td>${pIteracion.email}</td>
+	            <td><a href="participantes?id=${pIteracion.id}">Editar</a></td>
 	          </tr>
 	         </c:forEach> 
 	         
