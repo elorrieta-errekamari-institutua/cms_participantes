@@ -7,13 +7,6 @@
     <h1>Listado Participantes</h1>
     <a href="participantes?id=0">Nuevo Participante</a>
     
-    
-    <hr>
-    Pintamos en atributo que nos envia el controlador
-    <hr>
-    ${participantes}
-    <hr>
-    
     <table class="table table-striped table-hover">
         <thead>
           <tr>
@@ -23,6 +16,7 @@
             <th scope="col">Apellidos</th>
             <th scope="col">Email</th>
             <th scope="col">Editar</th>
+            <th scope="col">Eliminar</th>
           </tr>
         </thead>
         <tbody>
@@ -45,6 +39,7 @@
 	            <td>${pIteracion.apellidos}</td>
 	            <td>${pIteracion.email}</td>
 	            <td><a href="participantes?id=${pIteracion.id}">Editar</a></td>
+	            <td><a href="participantes?id=${pIteracion.id}&op=eliminar">Eliminar</a></td>
 	          </tr>
 	         </c:forEach> 
 	         

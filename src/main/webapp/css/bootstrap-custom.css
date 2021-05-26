@@ -3,6 +3,10 @@
     display: block;
 }
 
+main.container {
+	margin-bottom: 40vh;
+}
+
 input[type="text"], input[type="email"], input[type="password"] {
     margin-bottom: 1.5rem !important;
 }

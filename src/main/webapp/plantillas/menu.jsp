@@ -48,7 +48,7 @@
 
  
 <c:if test="${mensaje != null}" >
-	<div class="alert alert-danger alert-dismissible fade show" role="alert">
+	<div class="alert alert-${mensajeTipo} alert-dismissible fade show" role="alert">
 	  ${mensaje}
 	  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 	</div>

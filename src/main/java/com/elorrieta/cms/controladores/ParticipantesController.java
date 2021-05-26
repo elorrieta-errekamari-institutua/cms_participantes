@@ -28,6 +28,7 @@ public class ParticipantesController extends HttpServlet {
 
 		// recoger parametros, no tenemos
 		String paramId = request.getParameter("id");
+		String paramEliminar = request.getParameter("op");
 
 		if (paramId == null) { // listar
 
@@ -38,16 +39,34 @@ public class ParticipantesController extends HttpServlet {
 		} else { // ir al formulario y mostrar datos
 
 			int id = Integer.parseInt(paramId);
-			Participante p = new Participante();
 
-			if (id > 0) { // ya existe, por lo cual lo recupero de la bbdd
+			if (paramEliminar != null) {
 
-				p = ParticipanteDAO.getById(id);
+				try {
+					ParticipanteDAO.delete(id);
+					request.setAttribute("mensajeTipo", "warning");
+					request.setAttribute("mensaje", "Eliminado Participante");
+				} catch (Exception e) {
+					request.setAttribute("mensajeTipo", "danger");
+					request.setAttribute("mensaje", "No se puede Eliminar");
+					e.printStackTrace();
+				}
+				ArrayList<Participante> lista = ParticipanteDAO.getAll();
+				request.setAttribute("participantes", lista);
+				request.getRequestDispatcher("participantes.jsp?page=participantes").forward(request, response);
+
+			} else {
+
+				Participante p = new Participante();
+
+				if (id > 0) { // ya existe, por lo cual lo recupero de la bbdd
+
+					p = ParticipanteDAO.getById(id);
+				}
+
+				request.setAttribute("participante", p);
+				request.getRequestDispatcher("formulario.jsp").forward(request, response);
 			}
-
-			request.setAttribute("participante", p);
-			request.getRequestDispatcher("formulario.jsp").forward(request, response);
-
 		}
 
 	}
@@ -79,9 +98,11 @@ public class ParticipantesController extends HttpServlet {
 				ParticipanteDAO.update(p);
 			}
 
+			request.setAttribute("mensajeTipo", "primary");
 			request.setAttribute("mensaje", "Datos Guardados");
 
 		} catch (Exception e) {
+			request.setAttribute("mensajeTipo", "danger");
 			request.setAttribute("mensaje", "El email esta repetido");
 
 		} finally {
