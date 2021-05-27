@@ -1,11 +1,18 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri = "http://java.sun.com/jsp/jstl/functions"  %>
 
 <jsp:include page="plantillas/cabecera.jsp"/>
 <jsp:include page="plantillas/menu.jsp"/>
 
  <main class="container">
-    <h1>Listado Participantes</h1>
+    <h1>${fn:length(participantes)} Participantes</h1>
     <a href="participantes-editar?id=0">Nuevo Participante</a>
+    
+    
+    <form>
+    	<input type="text" placeholder="Filtrar por nombre, apellido o email">
+    	<input type="submit" value="Filtrar">
+    </form>
     
     <table class="table table-striped table-hover">
         <thead>

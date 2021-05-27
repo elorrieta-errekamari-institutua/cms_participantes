@@ -26,6 +26,19 @@ public class ParticipantesListarController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
+		/*
+		 * // 1000 usuarios de prueba for (int i = 0; i < 1000; i++) {
+		 * 
+		 * Participante mock = new Participante(); mock.setNombre("MockNombre" + i);
+		 * mock.setEmail("mock" + i + "@otro.com"); mock.setApellidos("Apellidos" + i);
+		 * mock.setAvatar("https://randomuser.me/api/portraits/women/" + ((i % 5) + 1) +
+		 * ".jpg"); try { ParticipanteDAO.insert(mock); } catch (Exception e) { // TODO
+		 * Auto-generated catch block e.printStackTrace(); }
+		 * 
+		 * }
+		 * 
+		 */
+
 		ArrayList<Participante> lista = ParticipanteDAO.getAll();
 		request.setAttribute("participantes", lista);
 		request.getRequestDispatcher("participantes.jsp?page=participantes").forward(request, response);
