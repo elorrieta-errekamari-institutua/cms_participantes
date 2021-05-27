@@ -5,7 +5,7 @@
 
  <main class="container">
     <h1>Listado Participantes</h1>
-    <a href="participantes?id=0">Nuevo Participante</a>
+    <a href="participantes-editar?id=0">Nuevo Participante</a>
     
     <table class="table table-striped table-hover">
         <thead>
@@ -38,14 +38,29 @@
 	            <td>${pIteracion.nombre}</td>
 	            <td>${pIteracion.apellidos}</td>
 	            <td>${pIteracion.email}</td>
-	            <td><a href="participantes?id=${pIteracion.id}">Editar</a></td>
-	            <td><a href="participantes?id=${pIteracion.id}&op=eliminar">Eliminar</a></td>
+	            <td><a href="participantes-editar?id=${pIteracion.id}">Editar</a></td>
+	            <td><a onclick="confirmarEliminacion('${pIteracion.nombre}')" href="particpantes-eliminar?id=${pIteracion.id}">Eliminar</a></td>
 	          </tr>
 	         </c:forEach> 
 	         
         <!-- terminamos de recorrer -->
         </tbody>
       </table>
+      
+      <script>
+      	
+      	function confirmarEliminacion(nombre){
+      		
+      		if ( window.confirm("¿ Quieres Eliminar a " + nombre + " ?") ){
+      			console.debug('eliminamos');
+      		}else {
+      			event.preventDefault(); // prevenir que el ancla haga su funcion
+      			console.debug('No Eliminamos');
+      		}
+      		
+      	}
+      
+      </script>
         
 </main> 
 

@@ -27,7 +27,7 @@
          
          <li class="nav-item">
            <a class="nav-link ${ (param.page eq 'participantes') ? 'active' : '' }" 
-              href="participantes">Participantes</a>
+              href="participantes-listar">Participantes</a>
          </li>
          <li class="nav-item">
            <a class="nav-link ${ (param.page eq 'formulario') ? 'active' : '' }" 

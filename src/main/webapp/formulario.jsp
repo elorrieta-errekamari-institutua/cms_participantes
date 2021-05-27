@@ -3,8 +3,8 @@
 
 <main class="container">
 
-	 <h1>Dar de Alta Nuevo Participantes</h1>
-        <form action="participantes" method="post" class="w-50">
+	 <h1>${titulo}</h1>
+        <form action="participantes-editar" method="post" class="w-50">
 
 			<p class="text-warning">ID esta oculto</p>
             <input type="text" 
@@ -53,7 +53,7 @@
                     class="form-control" 
                     placeholder="url de la imagen para el avatar">       
 
-            <input type="submit" value="Crear" class="btn btn-block btn-primary mt-4">
+            <input type="submit" value="${ ( participante.id == 0 ) ? 'Crear' : 'Editar' }" class="btn btn-block btn-primary mt-4">
         </form>
 
 </main> 
