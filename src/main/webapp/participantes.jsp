@@ -8,12 +8,21 @@
     <h1>${fn:length(participantes)} Participantes</h1>
     <a href="participantes-editar?id=0">Nuevo Participante</a>
     
+    <form action="participantes-listar" method="get">
+	    <div class="input-group">
+		  <div class="form-outline">
+		    <input type="search" name="filtro"
+		           value="${filtro}" 
+		           class="form-control"		           
+		           placeholder="Nombre, apellidos o email"/>	    
+		  </div>
+		  <button type="submit" class="btn btn-primary">
+		    <i class="fas fa-search"></i>
+		  </button>
+		</div>
+	</form>
     
-    <form>
-    	<input type="text" placeholder="Filtrar por nombre, apellido o email">
-    	<input type="submit" value="Filtrar">
-    </form>
-    
+   
     <table class="table table-striped table-hover">
         <thead>
           <tr>
@@ -45,8 +54,8 @@
 	            <td>${pIteracion.nombre}</td>
 	            <td>${pIteracion.apellidos}</td>
 	            <td>${pIteracion.email}</td>
-	            <td><a href="participantes-editar?id=${pIteracion.id}">Editar</a></td>
-	            <td><a onclick="confirmarEliminacion('${pIteracion.nombre}')" href="particpantes-eliminar?id=${pIteracion.id}">Eliminar</a></td>
+	            <td><a href="participantes-editar?id=${pIteracion.id}" class="btn btn-outline-primary">Editar</a></td>
+	            <td><a onclick="confirmarEliminacion('${pIteracion.nombre}')" class="btn btn-outline-danger" href="particpantes-eliminar?id=${pIteracion.id}">Eliminar</a></td>
 	          </tr>
 	         </c:forEach> 
 	         

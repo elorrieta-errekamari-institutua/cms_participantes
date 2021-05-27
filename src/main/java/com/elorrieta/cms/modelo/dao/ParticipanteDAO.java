@@ -23,13 +23,47 @@ public class ParticipanteDAO {
 	 */
 	public static ArrayList<Participante> filtrar(String palabraBusqueda) {
 
-		// SELECT * FROM participante WHERE nombre LIKE '%txi%' OR apellidos LIKE
-		// '%txi%' OR email LIKE '%txi%';
-		// SELECT * FROM participante WHERE nombre LIKE ? OR apellidos LIKE ? OR email
-		// LIKE ?;
-		// CUIDADO sustituir pst con pst.setString(1, "'%" + palabraBusqueda + "%'" );
+		ArrayList<Participante> coleccion = new ArrayList<Participante>();
+		String sql = " SELECT id, nombre, apellidos, email, avatar FROM participante "
+				+ " WHERE nombre LIKE ? OR apellidos LIKE ? or email LIKE ? " + " ORDER BY id ASC; ";
 
-		return null;
+		try (Connection con = ConnectionHelper.getConnection(); PreparedStatement pst = con.prepareStatement(sql)) {
+
+			pst.setString(1, "%" + palabraBusqueda + "%");
+			pst.setString(2, "%" + palabraBusqueda + "%");
+			pst.setString(3, "%" + palabraBusqueda + "%");
+
+			try (ResultSet rs = pst.executeQuery()) { // lanza la consulta SQL y obtiene Resultados RS
+
+				while (rs.next()) { // itero sobre los resultados de la consulta SQL
+
+					// creamos un nuevo Objeto y lo seteamos con los valores del RS
+					Participante p = new Participante();
+
+					// cogemos los valres de las columnas
+					int colId = rs.getInt("id");
+					String colNombre = rs.getString("nombre");
+					String colApellidos = rs.getString("apellidos");
+
+					p.setId(colId);
+					p.setNombre(colNombre);
+					p.setApellidos(colApellidos);
+					p.setEmail(rs.getString("email"));
+					p.setAvatar(rs.getString("avatar"));
+
+					// añadir objeto al ArrayList
+					coleccion.add(p);
+
+				}
+				// fin del bucle, ya no quedan mas lineas para leer
+			} // fin del segundro try
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return coleccion;
+
 	}
 
 	/**
