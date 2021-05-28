@@ -25,22 +25,36 @@
 	         </li>
          </c:if>
          
-         <li class="nav-item">
-           <a class="nav-link ${ (param.page eq 'participantes') ? 'active' : '' }" 
-              href="participantes-listar">Participantes</a>
-         </li>
-         <li class="nav-item">
-           <a class="nav-link ${ (param.page eq 'formulario') ? 'active' : '' }" 
-              href="formulario.jsp?page=formulario">Formulario Alta</a>
-         </li>
+         <!-- visible solo para ADMINISTRADORES -->
+         <c:if test="${usuario_logeado.rol == 2 }">
+	         <li class="nav-item">
+	           <a class="nav-link ${ (param.page eq 'participantes') ? 'active' : '' }" 
+	              href="backoffice/participantes-listar">Participantes</a>
+	         </li>
+	         <li class="nav-item">
+	           <a class="nav-link ${ (param.page eq 'formulario') ? 'active' : '' }" 
+	              href="backoffice/formulario.jsp?page=formulario">Crear Participante</a>
+	         </li>
+	         
+	           <li class="nav-item">
+	           <a class="nav-link" 
+	              href="backoffice/perros">Perros</a>
+	         </li>
+         </c:if>
+         
+         <!-- visible solo para NORMAL -->
+         <c:if test="${usuario_logeado.rol == 1 }">
+	         <li class="nav-item">
+	           <a class="nav-link" 
+	              href="#">Tu Perfil</a>
+	         </li>
+         </c:if>
+         
          <li class="nav-item">
            <a class="nav-link" 
               href="calculadora.jsp">Calculadora</a>
          </li>
-           <li class="nav-item">
-           <a class="nav-link" 
-              href="perros">Perros</a>
-         </li>
+         
        </ul>
      </div>
    </div>

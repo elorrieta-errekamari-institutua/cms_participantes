@@ -47,7 +47,13 @@ public class LoginController extends HttpServlet {
 
 		if (usuario != null) {
 			mensaje = "Ongi Etorri";
-			vista = "participantes"; // nombre del controlador, no quiero ir a la JSP
+
+			// comprobar el ROL
+			if (Usuario.ROL_ADMIN == usuario.getRol()) {
+				vista = "backoffice/participantes-listar"; // nombre del controlador, no quiero ir a la JSP
+			} else {
+				vista = "frontoffice/perfil.jsp";
+			}
 
 			// guardamos el usuario logeado en session como un atributo
 			HttpSession session = request.getSession();

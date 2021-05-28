@@ -1,7 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<jsp:include page="plantillas/cabecera.jsp"/>
-<jsp:include page="plantillas/menu.jsp"/>
+<jsp:include page="../plantillas/cabecera.jsp"/>
+<jsp:include page="../plantillas/menu.jsp"/>
 
  <main class="container">
     <h1>Listado Perros</h1>
@@ -62,4 +62,4 @@
    <!-- .row -->         
 </main> 
 
-<jsp:include page="plantillas/footer.jsp"/>
+<jsp:include page="../plantillas/footer.jsp"/>

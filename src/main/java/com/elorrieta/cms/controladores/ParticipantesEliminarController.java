@@ -13,7 +13,7 @@ import com.elorrieta.cms.modelo.dao.ParticipanteDAO;
 /**
  * Servlet implementation class ParticpantesEliminarController
  */
-@WebServlet("/particpantes-eliminar")
+@WebServlet("/backoffice/particpantes-eliminar")
 public class ParticipantesEliminarController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

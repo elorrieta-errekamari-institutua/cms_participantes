@@ -16,7 +16,7 @@ import com.elorrieta.cms.modelo.dao.RazaDAO;
 /**
  * Servlet implementation class PerroController
  */
-@WebServlet("/perros")
+@WebServlet("/backoffice/perros")
 public class PerroController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

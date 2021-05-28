@@ -14,7 +14,7 @@ import com.elorrieta.cms.modelo.dao.ParticipanteDAO;
 /**
  * Servlet implementation class ParticipantesEditar
  */
-@WebServlet("/participantes-editar")
+@WebServlet("/backoffice/participantes-editar")
 public class ParticipantesEditar extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

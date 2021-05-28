@@ -1,14 +1,14 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri = "http://java.sun.com/jsp/jstl/functions"  %>
 
-<jsp:include page="plantillas/cabecera.jsp"/>
-<jsp:include page="plantillas/menu.jsp"/>
+<jsp:include page="../plantillas/cabecera.jsp"/>
+<jsp:include page="../plantillas/menu.jsp"/>
 
  <main class="container">
     <h1>${fn:length(participantes)} Participantes</h1>
-    <a href="participantes-editar?id=0">Nuevo Participante</a>
+    <a href="backoffice/participantes-editar?id=0">Nuevo Participante</a>
     
-    <form action="participantes-listar" method="get">
+    <form action="backoffice/participantes-listar" method="get">
 	    <div class="input-group">
 		  <div class="form-outline">
 		    <input type="search" name="filtro"
@@ -54,8 +54,8 @@
 	            <td>${pIteracion.nombre}</td>
 	            <td>${pIteracion.apellidos}</td>
 	            <td>${pIteracion.email}</td>
-	            <td><a href="participantes-editar?id=${pIteracion.id}" class="btn btn-outline-primary">Editar</a></td>
-	            <td><a onclick="confirmarEliminacion('${pIteracion.nombre}')" class="btn btn-outline-danger" href="particpantes-eliminar?id=${pIteracion.id}">Eliminar</a></td>
+	            <td><a href="backoffice/participantes-editar?id=${pIteracion.id}" class="btn btn-outline-primary">Editar</a></td>
+	            <td><a onclick="confirmarEliminacion('${pIteracion.nombre}')" class="btn btn-outline-danger" href="backoffice/particpantes-eliminar?id=${pIteracion.id}">Eliminar</a></td>
 	          </tr>
 	         </c:forEach> 
 	         
@@ -80,4 +80,4 @@
         
 </main> 
 
-<jsp:include page="plantillas/footer.jsp"/>
+<jsp:include page="../plantillas/footer.jsp"/>

@@ -1,10 +1,10 @@
-<jsp:include page="plantillas/cabecera.jsp"/>
-<jsp:include page="plantillas/menu.jsp"/>
+<jsp:include page="../plantillas/cabecera.jsp"/>
+<jsp:include page="../plantillas/menu.jsp"/>
 
 <main class="container">
 
 	 <h1>${titulo}</h1>
-        <form action="participantes-editar" method="post" class="w-50">
+        <form action="backoffice/participantes-editar" method="post" class="w-50">
 
 			<p class="text-warning">ID esta oculto</p>
             <input type="text" 
@@ -58,4 +58,4 @@
 
 </main> 
 
-<jsp:include page="plantillas/footer.jsp"/>
+<jsp:include page="../plantillas/footer.jsp"/>

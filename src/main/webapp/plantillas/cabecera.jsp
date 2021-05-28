@@ -11,5 +11,9 @@
     <!-- mi css -->
     <link rel="stylesheet" href="css/bootstrap-custom.css?v1.0">
     <title>CMS</title>
+    
+    <!-- El elemento HTML <base> especifica la dirección URL base que se utilizará para todas las direcciones URL relativas contenidas dentro de un documento. Sólo puede haber un elemento <base> en un documento. -->
+    <base href="http://localhost:8080/cms/">	
+    
 </head>
 <body>
