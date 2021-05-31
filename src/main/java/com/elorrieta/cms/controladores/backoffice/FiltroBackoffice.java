@@ -1,4 +1,4 @@
-package com.elorrieta.cms.controladores;
+package com.elorrieta.cms.controladores.backoffice;
 
 import java.io.IOException;
 
@@ -17,7 +17,12 @@ import javax.servlet.http.HttpSession;
 import com.elorrieta.cms.modelo.Usuario;
 
 /**
- * Servlet Filter implementation class FiltroBackoffice
+ * Filtra todas las peticiones (request) que empiecen por la url "/backoffice/*"
+ * <br>
+ * Comprueba que el usuario hay sido logeado y tenga el rol de ADMINISTRADOR
+ * <br>
+ * Para poder comprobarlo usa el atributo de session (Usuario) usuario_logeado
+ * 
  */
 @WebFilter(dispatcherTypes = { DispatcherType.REQUEST, DispatcherType.FORWARD, DispatcherType.INCLUDE,
 		DispatcherType.ERROR }, urlPatterns = { "/backoffice/*" })

@@ -66,6 +66,14 @@
 	  ${mensaje}
 	  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 	</div>
+	
+	
+	<% 
+	    //despues de pintar el mensaje, eliminarlo para que no se guarde en session
+	    session.setAttribute("mensaje", null); 
+		session.setAttribute("mensajeTipo", null);
+	%>
+	
 </c:if>	
  
  

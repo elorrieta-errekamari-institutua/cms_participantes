@@ -1,4 +1,4 @@
-package com.elorrieta.cms.controladores;
+package com.elorrieta.cms.controladores.backoffice;
 
 import java.io.IOException;
 

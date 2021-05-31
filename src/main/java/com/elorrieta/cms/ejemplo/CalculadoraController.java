@@ -23,7 +23,7 @@ public class CalculadoraController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// recoger PARAMETROS, CUIDADO siempre son String
-		String op = request.getParameter("operacion");
+		// String op = request.getParameter("operacion");
 		int numero1 = Integer.parseInt(request.getParameter("numero1"));
 		int numero2 = Integer.parseInt(request.getParameter("numero2"));
 

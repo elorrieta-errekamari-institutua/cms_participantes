@@ -37,6 +37,7 @@ public class LoginController extends HttpServlet {
 
 		String mensaje = "";
 		String vista = "";
+		HttpSession session = request.getSession();
 
 		// recoger parametros
 		String nombre = request.getParameter("nombre");
@@ -56,9 +57,10 @@ public class LoginController extends HttpServlet {
 			}
 
 			// guardamos el usuario logeado en session como un atributo
-			HttpSession session = request.getSession();
+
 			session.setAttribute("usuario_logeado", usuario);
 			session.setMaxInactiveInterval(60 * 5); // 5 min
+			// session.setMaxInactiveInterval(5); // 5 segundos
 
 		} else {
 			mensaje = "Credenciales incorrectas, prueba de nuevo";
@@ -66,10 +68,11 @@ public class LoginController extends HttpServlet {
 		}
 
 		// enviar atributos para vistar
-		request.setAttribute("mensaje", mensaje);
+		session.setAttribute("mensaje", mensaje);
 
 		// Ir a una vista
-		request.getRequestDispatcher(vista).forward(request, response);
+		// request.getRequestDispatcher(vista).forward(request, response);
+		response.sendRedirect(vista);
 
 	}
 
