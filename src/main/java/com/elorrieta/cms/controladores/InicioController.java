@@ -35,9 +35,6 @@ public class InicioController extends HttpServlet {
 
 		// llamar DAO para recuperar datos
 
-		Object o = null;
-		o.toString();
-
 		// enviar como atributos
 
 		// ir a la vista
