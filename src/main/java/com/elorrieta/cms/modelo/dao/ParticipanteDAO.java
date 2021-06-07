@@ -51,7 +51,7 @@ public class ParticipanteDAO {
 					p.setEmail(rs.getString("email"));
 					p.setAvatar(rs.getString("avatar"));
 
-					// añadir objeto al ArrayList
+					// aï¿½adir objeto al ArrayList
 					coleccion.add(p);
 
 				}
@@ -70,8 +70,7 @@ public class ParticipanteDAO {
 	 * Consulta la tabla 'participante' para recuperar todos y devolverlos en una
 	 * coleccion
 	 * 
-	 * @return Lista con todos los participantes de la bbdd
-	 * @throws Exception
+	 * @return Lista con todos los participantes de la bbdd *
 	 */
 	public static ArrayList<Participante> getAll() {
 
@@ -102,7 +101,7 @@ public class ParticipanteDAO {
 				p.setEmail(rs.getString("email"));
 				p.setAvatar(rs.getString("avatar"));
 
-				// añadir objeto al ArrayList
+				// aï¿½adir objeto al ArrayList
 				coleccion.add(p);
 
 			}

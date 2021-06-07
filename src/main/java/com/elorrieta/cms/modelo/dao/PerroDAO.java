@@ -51,7 +51,7 @@ public class PerroDAO {
 				raza.setNombre(colRazaNombre);
 				p.setRaza(raza);
 
-				// añadir objeto al ArrayList
+				// aï¿½adir objeto al ArrayList
 				coleccion.add(p);
 
 			}
@@ -69,6 +69,7 @@ public class PerroDAO {
 	 * 
 	 * @param pNuevo Perro a insertar
 	 * @return true si es insertado, false en caso contrario
+	 * @throws Exception excepcion si el nombre del perro ya existe
 	 */
 	public static boolean insert(Perro pNuevo) throws Exception {
 

@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * @WebServlet("/calcular") es la URL donde esta escuchando esta clase de java
+ * WebServlet("/calcular") es la URL donde esta escuchando esta clase de java
  */
 @WebServlet("/calcular")
 public class CalculadoraController extends HttpServlet {
