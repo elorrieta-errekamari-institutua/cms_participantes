@@ -1,7 +1,7 @@
-# supermercado-java
+# CMS Participantes
 
-Proyecto Web **Java EE** siguiendo el patrón de **MVC** contra una bbdd **Mysql**
-CMS para gestionar los productos de un supermercado. 
+Proyecto Web **Java EE** siguiendo el patrón de **MVC** contra una bbdd **sqlite**
+CMS para gestionar diferentes tablas de la bbdd. 
 
 
 ![screenshot 1]( screenshot1.jpg?raw=true)
