@@ -20,7 +20,11 @@ CMS para gestionar diferentes tablas de la bbdd.
 
 Para ver mas detalles sobre las depencias (jars) de este proyecto mirar el [pom.xml](https://github.com/elorrieta-errekamari-institutua/cms_participantes/blob/master/pom.xml)
 
+## Instalación Proyecto
 
+Abrir eclipse y usar la opción de **Import > Existing Maven Project**
+Seleccionar la carpeta donde se ha bajado el proyecto para que encuentre el fichero **pom.xml**
+Esperar unos segundos a que configure el proyecto
 
 
 ## configuración de la bbdd
@@ -35,32 +39,35 @@ private static final String DIRECCION_BBDD = "jdbc:sqlite:C:\\desarrolloJava\\wo
 `
 
 
+![entidad relacion]( screenshot2.jpg?raw=true)
 
- -- TODO DIAGRAMA DE LA BBDD  ---
+
 
 ## Ejecutar Proyecto
 
-Al ser un proyecto web necesitamos un servidor de aplicaciones, en nuestro caso recomendamos **Apache Tomcat 9.0**.
+Al ser un proyecto web necesitamos un servidor de aplicaciones, en nuestro caso recomendamos **Apache Tomcat 8.5**.
 
-Podemos navegar por los diferentes enlaces de la cabecera puesto que son públicos.
+Podemos navegar por los diferentes enlaces de la cabecera puesto que son públicos, por ejemplo JavaDoc y Calculadora.
 Si queremos entrar a los paneles de Administración deberemos *Iniciar Sesión*.
 Tenemos dos roles diferentes:
 
-1. Administrador   **[admin,123456]** : Permisos Totales para cambiar cualquier producto
-2. Usuario Normal  **[pepe, 123456]** : Permismos solo para sus productos
+1. Administrador   **[admin,admin]** : Permisos Totales para cambiar cualquier participante
+2. Usuario Normal  **[pepe, 12345]** : Solo podemos ver los datos del usuario
 
-*Las contraseñas estan haseadas en MD5 dentro de la bbdd.*
+#### UI para usuario administrador con rol = 2
+![UI para usuario administrador]( screenshot3.jpg?raw=true)
 
+#### UI para usuario normal con rol = 1
+![UI para usuario normal]( screenshot4.jpg?raw=true)
 
 ## Estructura Clases del proyecto
 
-Interesante consultar la documentacion [JavaDoc API](https://github.com/ipartek/supermercado-java/tree/master/src/main/webapp/doc) la cual esta accesible una vez ejecuitado el proyecto en la propia barra de navegación.
+Interesante consultar la documentacion **JavaDoc API**
 
-Intersante mirar los siguientes packages de java:
+Model Vista Controlador
 
-- **com.ipartek.formacion.listenner** Listener que se ejecuta al arrancar la APP
-- **com.ipartek.formacion.controller.backoffice** Controladores para el usuario administrador
-- **com.ipartek.formacion.controller.frontoffice** Controladores para el usuario normal
-- **com.ipartek.formacion.modelo.pojo** Pojos o Clases para crear Objetos e java
-- **com.ipartek.formacion.modelo.dao** DAO para relacionar los Pojos de Java con las tablas dela BBDD
-- **com.ipartek.formacion.seguridad** Filtros de seguridad
+- **vista** puedes encontrar las JSPs, css, imagenes, js en `src/main/webapp`
+- **modelo** Los DAOs se encargan de conectar Java con la bbdd son los encargados de las consultas SQL `src/main/java/com/elorrieta/cms/modelo`
+- **controlador** Controladores o Servlets `src/main/java/com/elorrieta/cms/controladores`
+
+![estructura proyecto]( screenshot5.jpg?raw=true)
