@@ -14,42 +14,26 @@ CMS para gestionar diferentes tablas de la bbdd.
 - Java Servlet Api 3.1.0
 - JSP 2.2
 - JSTL 1.2
-- Javax Validation Api 1.1
-- Bootstrap 4.5.0
-- FontAwesome 5.13.0
-- Datatables.net 1.10.21
+- Bootstrap 5.0.0
+- FontAwesome 5.15.3
 
-Para ver mas detalles sobre las depencias de este proyecto mirar el [pom.xml](https://github.com/ipartek/supermercado-java/blob/master/pom.xml)
+
+Para ver mas detalles sobre las depencias (jars) de este proyecto mirar el [pom.xml](https://github.com/elorrieta-errekamari-institutua/cms_participantes/blob/master/pom.xml)
 
 
 
 
 ## configuración de la bbdd
 
-Para crear la bbdd disponemos de un script **script-db.sql** en la raiz del proyecto, el cual crear el esquema **supermercado** y las tablas necesarias, ademas de insertar datos de prueba.
+La base de datos es el fichero **cms.db**
 
-![screenshot 2]( screenshot2.jpg?raw=true)
+Para realizar la conexión a la bbdd cambiar el siguiente fichero **src\main\java\com\elorrieta\cms\modelo\dao\ConnectionHelper.java**
+Solo debemos cambiar la siguiente variable con la ruta de la bbdd 
 
-Para realizar la conexión a la bbdd cambiar el siguiente fichero **src/main/webapp/META-INF/context.xml**
+`
+private static final String DIRECCION_BBDD = "jdbc:sqlite:C:\\desarrolloJava\\workspace\\cms\\cms.db";
+`
 
-
-```
-<?xml version="1.0" encoding="UTF-8"?>
-  <Context path="/ejemplo05">
-      <Resource
-          type="javax.sql.DataSource"
-          auth="Container"
-          name="jdbc/super"
-          driverClassName="com.mysql.jdbc.Driver"
-          url="jdbc:mysql://localhost:3306/supermercado"
-          username="USUARIO"
-          password="PASSWORD"
-          maxActive="100"
-          maxIdle="30"
-          maxWait="10000"          
-      />
- </Context>
-```
 
 
  -- TODO DIAGRAMA DE LA BBDD  ---
